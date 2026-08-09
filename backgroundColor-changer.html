@@ -1,73 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        body {
             height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: lightskyblue;
-            
-        }
-        #myDiv{
-            height: 400px;
-            min-width: 500px;
-            /* background-color: red; */
-            align-content: center; /* Centers vertically */
-            text-align: center; 
-            border: 1px solid black;
-            border-radius: 10px;
+
         }
 
-        h1{
-            font-family: Arial, Helvetica, sans-serif;
-            color: #fafafa
-          
+        #myDiv {
+            height: 400px;
+            min-width: 500px;
+            align-content: center;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            transition: background-color 0.5s ease;
+            /* border: none; */
         }
-        
-        button{
+
+        #myDiv:hover {
+            /* transform: translateY(-5px); */
+            transition: 0.5s all;
+            box-shadow:0 25px 60px rgba(0, 0, 0, 0.3),
+                       inset 0 1px 1px rgba(255, 255, 255, 0.3);
+                
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fafafa;
+            
+            
+        }
+
+        p {
+            font-size: 22px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 20px 0;
+            letter-spacing: 1px;
+            color: white;
+
+        }
+
+        button {
             transition: background-color 0.5s ease;
             cursor: pointer;
-            border-radius: 5px;
-            padding: 10px 20px;
+            border-radius: 20px;
+            padding: 15px 30px;
             background-color: white;
             color: black;
             border: none;
             font-weight: bold;
+            transition: color 0.5s ease;
+
 
 
         }
-        button:hover{
+
+        button:hover {
             background-color: black;
             color: white;
-            
+            transform: scale(1.08);
+
 
         }
 
+        button:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
+
 <body>
 
-       <div id="myDiv">
-            <h1>🎨 Color Switcher</h1>
-         <button onclick="colorChanger()">Change Now</button>
-       </div>
-    
+    <div id="myDiv">
+        <h1>🎨 Color Switcher</h1>
+        <p id="colorName">Color Is Sky Blue</p>
+        <button onclick="colorChanger()">Change Now</button>
+    </div>
+
     <script>
         const color = ["Red", "Green", "Pink", "Black", "Purple", "Yellow", "Cyan", "Orange", "Blue", "Violet", "Brown"];
         const div = document.getElementById("myDiv");
 
-        const colorChanger = function(){
-            const radnomColor =  Math.floor(Math.random()*color.length);
+        const colorName = document.getElementById("colorName");
+
+        const colorChanger = function () {
+            const radnomColor = Math.floor(Math.random() * color.length);
             div.style.backgroundColor = color[radnomColor]
-            
+
+            colorName.innerText = "Color Is " + color[radnomColor];
+
         }
 
     </script>
-    
+
 </body>
+
 </html>
