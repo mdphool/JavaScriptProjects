@@ -1,6 +1,7 @@
 # JavaScriptProjects
 A collection of JavaScript projects created to practice and demonstrate JavaScript concepts, DOM manipulation, events, APIs, and more.
 
-<img width="1326" height="916" alt="image" src="https://github.com/user-attachments/assets/ee62421c-59f4-409d-88ef-74e00c6976be" />
+<img width="1791" height="896" alt="image" src="https://github.com/user-attachments/assets/c97b94b0-7d5d-47da-b61d-5efb9a6d694c" />
+
 
 
