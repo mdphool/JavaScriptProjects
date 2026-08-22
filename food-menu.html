@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- styles -->
+   <style>
+    /*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: #49a6e9;
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-gold: #c59d5f;
+  --clr-black: #222;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+img:not(.logo) {
+  width: 100%;
+}
+img {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+.btn {
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--clr-black);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid var(--clr-black);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+}
+.btn:hover {
+  color: var(--clr-white);
+  background: var(--clr-black);
+}
+/* section */
+.section {
+  padding: 5rem 0;
+}
+
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+/*
+=============== 
+Menu
+===============
+*/
+
+.menu {
+  padding: 5rem 0;
+}
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.underline {
+  width: 10rem;
+  height: 0.25rem;
+  background: var(--clr-gold);
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-container {
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+.filter-btn {
+  background: transparent;
+  border-color: var(--clr-gold);
+  font-size: 1rem;
+  font-weight: bolder;
+  text-transform: capitalize;
+  margin: 0 0.5rem;
+  letter-spacing: 1px;
+  border-radius: var(--radius);
+  padding: 0.375rem 0.75rem;
+  color: var(--clr-gold);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.filter-btn:hover {
+  background: var(--clr-red-light);
+  color: var(--clr-white);
+}
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  gap: 3rem 2rem;
+  justify-items: center;
+}
+.menu-item {
+  display: grid;
+  gap: 1rem 2rem;
+  max-width: 25rem;
+}
+.photo {
+  object-fit: cover;
+  height: 200px;
+  border: 0.25rem solid var(--clr-gold);
+  border-radius: var(--radius);
+}
+.item-info header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px dotted var(--clr-grey-5);
+}
+.item-info h4 {
+  margin-bottom: 0.5rem;
+}
+.price {
+  color: var(--clr-gold);
+}
+.item-text {
+  margin-bottom: 0;
+  padding-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-item {
+    grid-template-columns: 225px 1fr;
+    gap: 0 1.25rem;
+    max-width: 40rem;
+  }
+  .photo {
+    height: 175px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .section-center {
+    width: 95vw;
+    grid-template-columns: 1fr 1fr;
+  }
+  .photo {
+    height: 150px;
+  }
+}
+   </style>
+  </head>
+  <body>
+    <section class="menu">
+      <!-- title -->
+      <div class="title">
+        <h2>Explore Our Menu</h2>
+        <div class="underline"></div>
+      </div>
+      <!-- filter buttons -->
+      <div class="btn-container">
+        <!-- <button type="button" class="filter-btn" data-id="all">all</button>
+        <button type="button" class="filter-btn" data-id="breakfast">
+          breakfast
+        </button>
+        <button type="button" class="filter-btn" data-id="lunch">lunch</button>
+        <button type="button" class="filter-btn" data-id="shakes">
+          shakes
+        </button> -->
+      </div>
+      <!-- menu items -->
+      <div class="section-center">
+        <!-- single item -->
+        <article class="menu-item">
+          <img src="./menu-item.jpeg" alt="menu item" class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>buttermilk pancakes</h4>
+              <h4 class="price">$15</h4>
+            </header>
+            <p class="item-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
+              laboriosam excepturi! Quo, officia.
+            </p>
+          </div>
+        </article>
+        <!-- end of single item -->
+        <!-- single item -->
+        <article class="menu-item">
+          <img src="./menu-item.jpeg" alt="menu item" class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>buttermilk pancakes</h4>
+              <h4 class="price">$15</h4>
+            </header>
+            <p class="item-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
+              laboriosam excepturi! Quo, officia.
+            </p>
+          </div>
+        </article>
+        <!-- end of single item -->
+        <!-- single item -->
+        <article class="menu-item">
+          <img src="./menu-item.jpeg" alt="menu item" class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>buttermilk pancakes</h4>
+              <h4 class="price">$15</h4>
+            </header>
+            <p class="item-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
+              laboriosam excepturi! Quo, officia.
+            </p>
+          </div>
+        </article>
+        <!-- end of single item -->
+      </div>
+    </section>
+    <!-- javascript -->
+    <script>
+ const menu = [
+  {
+  id: 1,
+  title: "buttermilk pancakes",
+  category: "breakfast",
+  price: 15.99,
+  img: "https://goboldwithbutter.com/BoldWithButter/media/recipe_images/Imported/best-buttermilk-pancakes.jpg?ext=.jpg",
+  desc: `Fluffy and golden buttermilk pancakes served warm with butter and sweet maple syrup for a delicious breakfast `,
+},
+{
+  id: 2,
+  title: "diner double",
+  category: "lunch",
+  price: 13.99,
+  img: "https://helloveggie.co/wp-content/uploads/2019/04/Pepper-Jack-Veggie-Quesadillas-Hello-Veggie-11.jpg",
+  desc: `A delicious crispy quesadilla filled with flavorful vegetables, melted cheese, and a creamy special sauce, grilled to golden perfection.`,
+},
+{
+  id: 3,
+  title: "godzilla milkshake",
+  category: "shakes",
+  price: 6.99,
+  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2AajeMwwN5wVhxoqKxKWbeZncZWTKsQojvKflF69XYQ&s=10",
+  desc: `A creamy and delicious milkshake blended with rich flavors, sweet toppings, and a smooth texture for a refreshing drink.`,
+},
+{
+  id: 4,
+  title: "country delight",
+  category: "breakfast",
+  price: 20.99,
+  img: "https://www.simplylakita.com/wp-content/uploads/2023/09/Chocolate-Delight-Simply-LaKita-29.jpg",
+  desc: `A sweet and creamy delight made with rich chocolate flavors, smooth layers, and delicious toppings for a perfect treat.`,
+},
+{
+  id: 5,
+  title: "egg attack",
+  category: "lunch",
+  price: 22.99,
+  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDf-LdfOIU6KUeu1_1U1o8FlTtrlfeZqkR-yI3mYEpHVy8c-V01MpFibBy&s=10",
+  desc: `A flavorful egg dish prepared with fresh ingredients, tasty spices, vegetables, and delicious toppings for a satisfying meal.`,
+},
+{
+  id: 6,
+  title: "oreo dream",
+  category: "shakes",
+  price: 18.99,
+  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCNMtQOvvM_ZWzuFcjUSZ9BVid-E63d_QSJqIye2vIJXZSBLBRL1QhnfY&s=10",
+  desc: `A rich and creamy Oreo shake blended with crunchy cookies, chocolate flavors, and sweet cream for a delicious treat.`,
+},
+{
+  id: 7,
+  title: "Biryani",
+  category: "breakfast",
+  price: 8.99,
+  img: "https://c.ndtvimg.com/2025-09/eq3g5hsk_biryani_625x300_10_September_25.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384https://cdn.pixabay.com/photo/2024/01/18/17/20/ai-generated-8517258_1280.jpg",
+  desc: `Aromatic basmati rice cooked with flavorful spices, herbs, and tender ingredients for a delicious and traditional Indian meal.`,
+},
+{
+  id: 8,
+  title: "indian classic",
+  category: "lunch",
+  price: 12.99,
+  img: "https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/w_1120,h_732,c_fill,g_auto/v1661347392/india-food-paratha/india-food-paratha-1120x732.jpg",
+  desc: `A delicious Indian classic made with traditional spices, fresh ingredients, and authentic flavors for a satisfying homemade meal.`,
+},
+{
+  id: 9,
+  title: "paneer roll",
+  category: "shakes",
+  price: 16.99,
+  img: "https://cdn.uengage.io/uploads/49314/image-118192-1723208395.jpeg",
+  desc: `Soft flatbread filled with spicy paneer, fresh vegetables, flavorful sauces, and herbs for a delicious Indian street food.`,
+},
+{
+  id: 10,
+  title: "butter chicken",
+  category: "dinner",
+  price: 22.99,
+  img: "https://badbatchbaking.com/wp-content/uploads/2025/03/easy-butter-chicken-31.jpg",
+  desc: `Tender chicken cooked in a rich and creamy tomato gravy with butter, aromatic spices, and traditional Indian flavors.`,
+},
+];
+// get parent element
+const sectionCenter = document.querySelector(".section-center");
+const btnContainer = document.querySelector(".btn-container");
+// display all items when page loads
+window.addEventListener("DOMContentLoaded", function () {
+  diplayMenuItems(menu);
+  displayMenuButtons();
+});
+
+function diplayMenuItems(menuItems) {
+  let displayMenu = menuItems.map(function (item) {
+    // console.log(item);
+
+    return `<article class="menu-item">
+          <img src=${item.img} alt=${item.title} class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>${item.title}</h4>
+              <h4 class="price">$${item.price}</h4>
+            </header>
+            <p class="item-text">
+              ${item.desc}
+            </p>
+          </div>
+        </article>`;
+  });
+  displayMenu = displayMenu.join("");
+  // console.log(displayMenu);
+
+  sectionCenter.innerHTML = displayMenu;
+}
+function displayMenuButtons() {
+  const categories = menu.reduce(
+    function (values, item) {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["all"]
+  );
+  const categoryBtns = categories
+    .map(function (category) {
+      return `<button type="button" class="filter-btn" data-id=${category}>
+          ${category}
+        </button>`;
+    })
+    .join("");
+
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = btnContainer.querySelectorAll(".filter-btn");
+  console.log(filterBtns);
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      // console.log(e.currentTarget.dataset);
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter(function (menuItem) {
+        // console.log(menuItem.category);
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+      if (category === "all") {
+        diplayMenuItems(menu);
+      } else {
+        diplayMenuItems(menuCategory);
+      }
+    });
+  });
+}
+    </script>
+  </body>
+</html>
